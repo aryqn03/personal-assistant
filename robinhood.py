@@ -1,29 +1,3 @@
-# Long term goals
-# How portfolio does as a whole
-# Key individual stocks -> performance
-# P/E ratio if applicable
-# Indicators of potential investments
-
-
-# profileData 
-# gives ['url', 'account', 'start_date', 'market_value', 'equity',
-# 'extended_hours_market_value', 'extended_hours_equity',
-# 'extended_hours_portfolio_equity', 'last_core_market_value', '
-# last_core_equity', 'last_core_portfolio_equity', 'excess_margin',
-# 'excess_maintenance', 'excess_margin_with_uncleared_deposits',
-# 'excess_maintenance_with_uncleared_deposits', 'equity_previous_close',
-# 'portfolio_equity_previous_close', 'adjusted_equity_previous_close',
-# 'adjusted_portfolio_equity_previous_close', 'withdrawable_amount',
-# 'unwithdrawable_deposits', 'unwithdrawable_grants', 'is_primary_account']
-
-# allTransactions
-# gives ['id', 'ref_id', 'url', 'cancel', 'ach_relationship',
-# 'account', 'amount', 'direction', 'state', 'fees',
-# 'status_description', 'scheduled', 'expected_landing_date',
-# 'early_access_amount', 'created_at', 'updated_at', 'rhs_state',
-# 'expected_sweep_at', 'expected_landing_datetime', 'investment_schedule_id',
-# 'managed_by_ph', 'instant_limit_to_grant']
-
 from collections import defaultdict
 import pandas as pd
 import robin_stocks.robinhood as r
@@ -37,7 +11,7 @@ def current_status():
     days_return = float(profileData['equity']) - float(profileData['adjusted_equity_previous_close'])
     if days_return < 0:
         print(
-            f'Unfortunately, you took an L of ${round(days_return,3)} today. ({datetime.now().strftime("%d/%m/%Y %H:%M:%S")})')
+            f'Unfortunately, you took a loss of ${round(days_return,3)} today. ({datetime.now().strftime("%d/%m/%Y %H:%M:%S")})')
     else:
         print(f'Lets go! You made ${round(days_return,3)} today! ({datetime.now().strftime("%d/%m/%Y %H:%M:%S")})')
     
@@ -47,15 +21,8 @@ def current_status():
     percent_change = round(((float(profileData["equity"]) - float(deposits)) * 100) / float(deposits), 2)
     print(f'The market value of your portfolio is ${profileData["equity"]}')
     print(f'Your all time % change is {percent_change}%')
-    print(f'You have ${profileData["withdrawable_amount"]} to spend my G!')
-    print('\n')
-    
-    # print('General Information:\n')
-    # print(f'Market value: ${profileData["market_value"]}')
-    # print(f'(Extended Hour) Equity: ${profileData["extended_hours_equity"]}')
-    # print(f'Buying power: ${profileData["withdrawable_amount"]}')
-    # print(f'Prev-close equity: ${profileData["adjusted_equity_previous_close"]}')
-    # print(f'Day change: {days_return}')    
+    print(f'You have ${profileData["withdrawable_amount"]} to spend!')
+    print('\n') 
 
 def deposits_analysis():
     # deposit_data = {}
