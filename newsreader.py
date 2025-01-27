@@ -19,7 +19,7 @@ if __name__ == '__main__':
     # add stuff for personal TT and finance shit thats useful
     
     
-    name = 'AJ Crip Killah'
+    name = 'Aryan Jhaveri'
     speak(f'Hello, {name}. Here are the top 5 headlines in the United States today...')
     
     for i in range(0, 5):
