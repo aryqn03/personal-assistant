@@ -25,22 +25,6 @@ def current_status():
     print('\n') 
 
 def deposits_analysis():
-    # deposit_data = {}
-    # for i in range(len(allTransactions)):
-    #     deposit_data[allTransactions[i]["expected_landing_date"]
-    #         ] = allTransactions[i]["amount"]
-
-    # date = list(deposit_data.keys())
-    # amount = [float(value) for value in deposit_data.values()]
-
-    # # Create the bar chart
-    # plt.bar(date[::-1], amount[::-1], width=0.6, align='center', color='blue')
-    # plt.xlabel('Date')
-    # plt.ylabel('$USD')
-    # plt.title('Deposits History')
-    # plt.xticks(rotation=15)  # Rotate x-axis labels for better visibility
-    # plt.xticks(fontsize=7)
-    # plt.show()
     deposit_data = defaultdict(float)
 
     for transaction in allTransactions:

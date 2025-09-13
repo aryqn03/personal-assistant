@@ -15,11 +15,9 @@ def speak(str):
 if __name__ == '__main__':
     r = requests.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=796ab5394b5d42fdabf274a6b54fe027")
     data = r.text
-    parsed = json.loads(data)
-    # add stuff for personal TT and finance shit thats useful
+    parsed = json.loads(data)    
     
-    
-    name = 'AJ Crip Killah'
+    name = 'Aryan Jhaveri'
     speak(f'Hello, {name}. Here are the top 5 headlines in the United States today...')
     
     for i in range(0, 5):
